@@ -1,5 +1,6 @@
 # ES6
 
-> note
+> **Note**
+>
 > Do tasks 7-12
 > and maybe the additional tasks
