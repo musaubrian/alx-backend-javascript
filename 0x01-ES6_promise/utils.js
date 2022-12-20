@@ -1,14 +1,20 @@
-export function uploadPhoto() {
+export function uploadPhoto () {
   return Promise.resolve({
     status: 200,
-    body: 'photo-profile-1',
+    body: 'photo-profile-1'
   });
 }
 
-
-export function createUser() {
+export function createUser () {
   return Promise.resolve({
     firstName: 'Guillaume',
-    lastName: 'Salva',
+    lastName: 'Salva'
   });
+} export default function createReportObject (employeesList) {
+  return {
+    allEmployees: { ...employeesList },
+    getNumberOfDepartments: (...employeesList) => {
+      return employeesList.length;
+    }
+  };
 }
