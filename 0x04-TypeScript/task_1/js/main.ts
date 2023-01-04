@@ -10,3 +10,5 @@ interface Teacher {
 interface Directors extends Teacher {
     numberOfReports: number
 }
+
+const printTeacher = (firstname: string, lastname: string): string => `${firstname.charAt(0)}.${lastname}`
