@@ -34,3 +34,9 @@ const isDirector = (employee: Teacher | Director): boolean => employee instanceo
 const executeWork = (employee: Teacher | Director): void => {
     employee instanceof Teacher ? employee.workTeacherTasks: employee.workDirectorTasks()
 }
+
+type Subjects = 'Math' | 'History'
+
+const teachClass = (todayClass: Subjects): string => {
+    return todayClass === 'History' ? 'Teaching History' : 'Teaching Math'
+}
