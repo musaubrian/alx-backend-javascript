@@ -29,3 +29,8 @@ const createEmployee = (salary: number | string): Teacher | Director => {
         return new Director()
     }
 }
+
+const isDirector = (employee: Teacher | Director): boolean => employee instanceof Director
+const executeWork = (employee: Teacher | Director): void => {
+    employee instanceof Teacher ? employee.workTeacherTasks: employee.workDirectorTasks()
+}
