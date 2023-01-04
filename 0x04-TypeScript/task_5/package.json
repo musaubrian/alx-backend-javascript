@@ -1,5 +1,5 @@
 {
-  "name": "task_4",
+  "name": "task_5",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,9 +21,5 @@
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
-  },
-  "dependencies": {
-    "audit": "^0.0.6",
-    "fix": "^0.0.6"
   }
 }
