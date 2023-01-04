@@ -21,15 +21,15 @@ const studentTwo: Student = {
 
 const studentList = [studentOne, studentTwo]
 
-const table = document.createElement("table")
+const table= document.createElement("table")
 const tableBody = document.createElement("tbody")
 
 table.appendChild(tableBody)
 
 studentList.forEach((student: Student) => {
-    const row = document.createElement("tr")
-    const name = document.createElement("td")
-    const location = document.createElement("td")
+    const row = document.createElement("tr") as HTMLTableRowElement
+    const name = document.createElement("td") as HTMLTableCellElement
+    const location = document.createElement("td") as HTMLTableCellElement
 
     name.textContent = student.firstname
     location.textContent = student.location
