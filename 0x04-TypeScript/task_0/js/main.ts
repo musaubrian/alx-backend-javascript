@@ -1,6 +1,6 @@
 interface Student {
-    firstname:  string,
-    lastname:  string,
+    firstname: string,
+    lastname: string,
     age: number,
     location: string
 }
@@ -9,7 +9,7 @@ const studentOne: Student = {
     firstname: "Jeremy",
     lastname: "Hughs",
     age: 18,
-    location : "hiddenville"
+    location: "hiddenville"
 }
 
 const studentTwo: Student = {
@@ -21,7 +21,7 @@ const studentTwo: Student = {
 
 const studentList = [studentOne, studentTwo]
 
-const table= document.createElement("table")
+const table = document.createElement("table")
 const tableBody = document.createElement("tbody")
 
 table.appendChild(tableBody)
