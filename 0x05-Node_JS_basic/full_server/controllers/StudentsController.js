@@ -1,6 +1,6 @@
 const readDatabase = require('../utils.js');
 
-export default class StudentsController {
+module.exports = class StudentsController {
   static getAllStudents (request, response) {
     readDatabase(process.argv[2])
       .then((data) => {
@@ -26,4 +26,4 @@ export default class StudentsController {
       })
       .catch((err) => { response.send(err.message); });
   }
-}
+};
