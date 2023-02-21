@@ -1,4 +1,4 @@
-const http = require('http');
+const express = require('express');
 const fs = require('fs');
 
 const countStudents = (path) => {
@@ -41,29 +41,25 @@ const countStudents = (path) => {
   });
 };
 
-const host = 'localhost';
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello Holberton School!');
+});
+app.get('/students', (req, res) => {
+  res.write('This is the list of our students\n');
+  countStudents(process.argv[2])
+    .then((data) => {
+      res.write(data.numberStudents);
+      res.write(data.listStudents.join('\n'));
+      res.end();
+    })
+    .catch((err) => {
+      res.end(err.message);
+    });
+});
+
 const port = 1245;
-
-const app = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  if (req.url === '/') res.end('Hello Holberton School!');
-  if (req.url === '/students') {
-    res.write('This is the list of our students\n');
-    countStudents(process.argv[2])
-      .then((data) => {
-        res.write(data.numberStudents);
-        res.write(data.listStudents.join('\n'));
-        res.end();
-      })
-      .catch((err) => {
-        res.end(err.message);
-      });
-  }
-});
-
-app.listen(port, host, () => {
-  console.log(`listening on port [${port}]`);
-});
+app.listen(port);
 
 module.exports = app;
