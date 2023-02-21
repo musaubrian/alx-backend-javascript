@@ -2,31 +2,32 @@ const fs = require('fs');
 // Read file synchronously
 const countStudents = (path) => {
   try {
-    const data = fs.readFileSync(path);
-    // get only the header
-    const header = data.split('\n')[0].slice(0, 1).split(',');
-    // actual data except the header(first line)
+    // read data
+    const data = fs.readFileSync(path, { encoding: 'utf-8' });
+    // give the header of data
+    const header = data.split('\n').slice(0, 1)[0].split(',');
+    // split data and taking only list without header
     const lines = data.split('\n').slice(1, -1);
-    // get indices of firstname and field
-    const fNameIdx = header.findIndex((ele) => ele === 'firstname');
-    const fieldIdx = header.findIndex((ele) => ele === 'field');
+    // find firstname and field index
+    const idxFn = header.findIndex((ele) => ele === 'firstname');
+    const idxFd = header.findIndex((ele) => ele === 'field');
     // declarate two dictionaries for count each fields and store list of students
     const fields = {};
     const students = {};
 
     lines.forEach((line) => {
       const list = line.split(',');
-      if (!fields[list[fieldIdx]]) fields[list[fieldIdx]] = 0;
-      fields[list[fieldIdx]] += 1;
-      if (!students[list[fieldIdx]]) students[list[fieldIdx]] = '';
-      students[list[fieldIdx]] += students[list[fieldIdx]] ? `, ${list[fNameIdx]}` : list[fNameIdx];
+      if (!fields[list[idxFd]]) fields[list[idxFd]] = 0;
+      fields[list[idxFd]] += 1;
+      if (!students[list[idxFd]]) students[list[idxFd]] = '';
+      students[list[idxFd]] += students[list[idxFd]] ? `, ${list[idxFn]}` : list[idxFn];
     });
 
     console.log(`Number of students: ${lines.length}`);
-    for (const k in fields) {
-      if (Object.hasOwnProperty.call(fields, k)) {
-        const element = fields[k];
-        console.log(`Number of students in ${k}: ${element}. List: ${students[k]}`);
+    for (const key in fields) {
+      if (Object.hasOwnProperty.call(fields, key)) {
+        const element = fields[key];
+        console.log(`Number of students in ${key}: ${element}. List: ${students[key]}`);
       }
     }
   } catch (error) {
