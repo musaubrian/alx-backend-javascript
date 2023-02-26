@@ -1,8 +1,7 @@
 const sendPaymentRequestToAPI = require('./5-payment.js');
 const sinon = require('sinon');
 const Utils = require('./utils');
-const chai = require('chai');
-const expect = chai.expect;
+const { expect } = require('chai');
 
 describe('use before and after hooks', function () {
   let callback;

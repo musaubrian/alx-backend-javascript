@@ -1,8 +1,7 @@
 const sendPaymentRequestToApi = require('./3-payment.js');
 const Utils = require('./utils');
 const sinon = require('sinon');
-const chai = require('chai');
-const expect = chai.expect;
+const { expect } = require('chai');
 
 describe('PaymentApi', function () {
   it('always returns the same number: 10', function () {
